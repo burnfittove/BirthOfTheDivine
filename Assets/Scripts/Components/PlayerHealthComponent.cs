@@ -2,6 +2,7 @@ using System;
 using DefaultNamespace;
 using Events;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Components
 {
@@ -32,6 +33,8 @@ namespace Components
             if (_playerController.invincibleTimeBuffer > 0) return;
             base.TakeDamage(amount);
             _playerController.MakeInvincible();
+            GameEventManager.Instance.resourceEvents.OnTakeBlood(new Random(DateTime.Now.Millisecond).Next(3, 8));
+            GameEventManager.Instance.resourceEvents.OnTakeBones(new Random(DateTime.Now.Millisecond).Next(1, 3));
         }
 
         private void IncreaseMaxHealth(int amount)
