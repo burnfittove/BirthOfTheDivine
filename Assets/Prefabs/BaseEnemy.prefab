@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9214191206286078214}
   - component: {fileID: -8070253095582290158}
   - component: {fileID: 7526879411059648126}
-  - component: {fileID: 8862009559338543149}
+  - component: {fileID: 8907145586932695128}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Enemy
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   damage: 2
---- !u!114 &8862009559338543149
+--- !u!114 &8907145586932695128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,8 +190,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 805256888053915068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5bfecc70f2e4f11ac39e6efdfb38db4, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b0b932031efa449f9c288ded90b342c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.HealthComponent
+  m_EditorClassIdentifier: Assembly-CSharp::Components.EnemyHealthComponent
   _currentHealth: 5
   _maxHealth: 5

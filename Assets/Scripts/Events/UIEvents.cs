@@ -1,16 +1,42 @@
-using UnityEngine;
+using System;
 
-public class UIEvents
+namespace Events
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class UIEvents
     {
-        
-    }
+        #region Health
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update health UI
+        public event Action<int> UpdateHealth;
+        public void OnUpdateHealth(int amount)
+        {
+            UpdateHealth?.Invoke(amount);
+        }
         
+        #endregion
+
+
+        #region Blood
+
+        // Update blood UI
+        public event Action<int> UpdateBlood;
+        public void OnUpdateBlood(int amount)
+        {
+            UpdateBlood?.Invoke(amount);
+        }
+
+        #endregion
+
+
+        #region Bones
+
+        // Update bone UI
+        public event Action<int> UpdateBones;
+        public void OnUpdateBones(int amount)
+        {
+            UpdateBones?.Invoke(amount);
+        }
+
+        #endregion
     }
 }
