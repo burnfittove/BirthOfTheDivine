@@ -10,9 +10,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e0cac96-2487-4b35-980b-ba7b67a5de78" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BirthOfTheDivine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BirthOfTheDivine/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0e0cac96-2487-4b35-980b-ba7b67a5de78" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +52,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "enemy-spawner",
+    "git-widget-placeholder": "tiles",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
