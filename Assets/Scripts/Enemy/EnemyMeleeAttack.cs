@@ -19,6 +19,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     public float attackCooldown = 2f;
 
     public bool isAttacking;
+    public bool jumpAttack;
+    public bool slashAttack;
     private float lastAttackTime;
 
     void Start()
@@ -134,6 +136,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     IEnumerator DashSlashThrough()
     {
         isAttacking = true;
+        slashAttack = true;
 
         Vector2 dir = (player.position - transform.position).normalized;
 
@@ -157,6 +160,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         SlashAttack();
 
+        slashAttack = false;
         isAttacking = false;
     }
 
@@ -185,6 +189,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     IEnumerator RunChargeHeavy()
     {
         isAttacking = true;
+        slashAttack = true;
 
         Vector2 targetPos = player.position;
 
@@ -226,6 +231,7 @@ public class EnemyMeleeAttack : MonoBehaviour
 
         yield return new WaitForSeconds(0.6f);
 
+        slashAttack = false;
         isAttacking = false;
     }
 
@@ -234,23 +240,39 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         isAttacking = true;
 
-        Vector2 targetPos = player.position;
-
         rb.linearVelocity = Vector2.zero;
+
         yield return new WaitForSeconds(2.5f);
 
-        Vector2 start = transform.position;
-        float t = 0;
+        float duration = 0.6f;
+        float t = 0f;
+
+        Vector2 startPos = transform.position;
 
         while (t < 1f)
         {
-            t += Time.deltaTime * 8f;
-            transform.position = Vector2.Lerp(start, targetPos, t);
+            t += Time.deltaTime / duration;
+
+            Vector2 targetPos = player.position;
+
+            Vector2 flatPos = Vector2.Lerp(startPos, targetPos, t);
+
+            float height = 2f;
+            float arc = Mathf.Sin(t * Mathf.PI) * height;
+
+            transform.position = new Vector2(flatPos.x, flatPos.y + arc);
+
             yield return null;
         }
 
-        AOEAttack(targetPos);
+        transform.position = player.position;
+        jumpAttack = true;
 
+        AOEAttack(player.position);
+
+        yield return new WaitForSeconds(0.4f);
+
+        jumpAttack = false;
         isAttacking = false;
     }
 

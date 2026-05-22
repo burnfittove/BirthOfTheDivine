@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool isFiring;
     private Vector2 shootDirection;
 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
