@@ -43,16 +43,16 @@ public class PlayerController : MonoBehaviour
     private bool walk_tile;
 
 
-    [Header("Audio Controller")]
-    [SerializeField] private AudioSource dash_audioSource;
-    [SerializeField] private AudioSource walk_audioSource;
-    [SerializeField] private AudioSource shoot1_audioSource; 
-
-    [SerializeField] private AudioClip playerDashClip;
-    [SerializeField] private AudioClip playerShootClip1;
-
-    [SerializeField] private AudioClip walk_grassa;
-    [SerializeField] private AudioClip walk_tilea;
+    // [Header("Audio Controller")]
+    // [SerializeField] private AudioSource dash_audioSource;
+    // [SerializeField] private AudioSource walk_audioSource;
+    // [SerializeField] private AudioSource shoot1_audioSource; 
+    //
+    // [SerializeField] private AudioClip playerDashClip;
+    // [SerializeField] private AudioClip playerShootClip1;
+    //
+    // [SerializeField] private AudioClip walk_grassa;
+    // [SerializeField] private AudioClip walk_tilea;
 
     private bool isWalkingSoundPlaying;
     
@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour
 
         GameEventManager.Instance.inputEvents.MovePressed += UpdatePlayerMoveDirection;
         GameEventManager.Instance.inputEvents.AttackPressed += Attack;
+        GameEventManager.Instance.levelEvents.LevelTimerFinished += DisableControlsOnLevelTimerEnd;
+        GameEventManager.Instance.sceneEvents.SceneLoaded += EnableControlsOnSceneChanged;
         
         //invincibleTime = PlayerStatManager.Instance.invincibilityTimer;
         movementSpeed = PlayerStatManager.Instance.speed;
@@ -85,8 +87,7 @@ public class PlayerController : MonoBehaviour
     {
         // GameEventManager.Instance.inputEvents.MovePressed += UpdatePlayerMoveDirection;
         // GameEventManager.Instance.inputEvents.AttackPressed += Attack;
-        GameEventManager.Instance.levelEvents.LevelTimerFinished += DisableControlsOnLevelTimerEnd;
-        GameEventManager.Instance.sceneEvents.SceneLoaded += EnableControlsOnSceneChanged;
+        
     }
 
     private void OnDisable()
@@ -111,7 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDashing) return;
 
-        walk_audioSource.PlayOneShot(walk_grassa);
+        // walk_audioSource.PlayOneShot(walk_grassa);
         //if (walk_grass)
         //{
         //    PlaySfx(walk_grassa);
@@ -127,15 +128,15 @@ public class PlayerController : MonoBehaviour
 
         if (isMoving && !isWalkingSoundPlaying)
         {
-            walk_audioSource.clip = walk_grassa;
-            walk_audioSource.loop = true;
-            walk_audioSource.Play();
+            // walk_audioSource.clip = walk_grassa;
+            // walk_audioSource.loop = true;
+            // walk_audioSource.Play();
 
             isWalkingSoundPlaying = true;
         }
         else if (!isMoving && isWalkingSoundPlaying)
         {
-            walk_audioSource.Stop();
+            // walk_audioSource.Stop();
             isWalkingSoundPlaying = false;
         }
     }
@@ -158,7 +159,7 @@ public class PlayerController : MonoBehaviour
 
         if (isFiring)
         {
-            shoot1_audioSource.Play();
+            // shoot1_audioSource.Play();
             Shoot();
         }
     }
@@ -219,7 +220,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Dash()
     {
         isDashing = true;
-        dash_audioSource.PlayOneShot(playerDashClip);
+        // dash_audioSource.PlayOneShot(playerDashClip);
         lastDashTime = Time.time;
 
         Vector2 inputDir = new Vector2(

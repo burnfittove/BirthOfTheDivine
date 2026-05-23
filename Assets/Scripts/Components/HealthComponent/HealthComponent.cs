@@ -51,6 +51,7 @@ namespace Components.HealthComponent
 
             isDead = true;
 
+            GameEventManager.Instance.resourceEvents.OnRewardBlood(24);
             StartCoroutine(DeathRoutine());
         }
 

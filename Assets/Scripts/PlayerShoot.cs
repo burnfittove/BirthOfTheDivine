@@ -10,8 +10,8 @@ public class PlayerShoot : MonoBehaviour
     [Header("Cursor")]
     public Texture2D cursorTexture;
 
-    [SerializeField] private AudioSource shoot1_audioSource;
-    [SerializeField] private AudioClip playerShootClip1;
+    // [SerializeField] private AudioSource shoot1_audioSource;
+    // [SerializeField] private AudioClip playerShootClip1;
 
     void Start()
     {
@@ -24,14 +24,14 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            shoot1_audioSource.Play();
+            // shoot1_audioSource.Play();
             Shoot();
         }
     }
 
     void Shoot()
     {
-        if (projectilePrefab == null || firePoint == null)
+        if (!projectilePrefab || !firePoint)
             return;
 
         Vector3 mouseScreen = Input.mousePosition;
