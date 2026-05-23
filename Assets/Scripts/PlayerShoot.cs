@@ -10,6 +10,9 @@ public class PlayerShoot : MonoBehaviour
     [Header("Cursor")]
     public Texture2D cursorTexture;
 
+    [SerializeField] private AudioSource shoot1_audioSource;
+    [SerializeField] private AudioClip playerShootClip1;
+
     void Start()
     {
         Cursor.visible = true;
@@ -21,6 +24,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            shoot1_audioSource.Play();
             Shoot();
         }
     }

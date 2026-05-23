@@ -686,6 +686,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3691085292489812968, guid: 927d412c3acceb4dfa342ce0df648402, type: 3}
+      propertyPath: _newSceneName
+      value: GameSceneBattle3
+      objectReference: {fileID: 0}
     - target: {fileID: 4483293766013585120, guid: 927d412c3acceb4dfa342ce0df648402, type: 3}
       propertyPath: m_Color.a
       value: 1
